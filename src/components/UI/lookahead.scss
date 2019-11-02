@@ -1,0 +1,47 @@
+.paper{
+    
+    position: absolute;
+    z-index: 1;    
+    left: 0;
+    right: 0;
+  
+}
+.no-options{
+    border: solid pink;
+}
+ 
+.root{
+    flex-grow: 1;
+    height: 250; 
+   
+}
+ .textField{
+  
+     min-width: 350px !important;
+ }
+
+  .input{
+    display: flex !important;
+    padding: 0;    
+   
+  }
+
+  .valueContainer {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    margin-left: 40px;
+    margin-top: 10px;
+    flex: 1;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .placeholder {
+    position: absolute;
+    left: 2;
+    font-size: 16;
+  }
+
+  
+  
