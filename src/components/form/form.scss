@@ -1,53 +1,60 @@
-
-@import '../../styles/base.scss';
-.challenge-form{
-    @include container;
-    div, p{
-        
-        font-size: 1.7rem;
-        i{
-            font-size: 2rem;
-            color: #ccc;
-            &.lrg-icon{
-                font-size: 5rem;
-            }
-        }
-    }   
-    .fld{
-        margin-bottom: 20px;   
-        width: 500px;
-    } 
+@import "../../styles/base.scss";
+.challenge-form {
+  @include container;
+  div,
+  p {
+    font-size: 1.7rem;
+    i {
+      font-size: 2rem;
+      color: #ccc;
+      &.lrg-icon {
+        font-size: 5rem;
+      }
+    }
+  }
+  .fld {
+    margin-bottom: 20px;
+    width: 475px;
+  }
 }
 .login-form {
-    @include container;
-    @include border-small;
-    div, p{
-        text-align: center;
-        font-size: 1.7rem;
-        i{
-            font-size: 2rem;
-            color: #ccc;
-            &.lrg-icon{
-                font-size: 5rem;
-            }
-        }
-    }    
-    p{
-        margin-top: -5px;
+  @include container;
+  @include border-small;
+  width: 440px;
+  div,
+  p {
+    text-align: center;
+    font-size: 1.7rem;
+    i {
+      font-size: 2rem;
+      color: #ccc;
+      &.lrg-icon {
+        font-size: 5rem;
+      }
     }
-    button{
-        margin-bottom: 10px;
-        height: 50px;
-    }
+  }
+  p {
+    margin-top: -5px;
+  }
+  button {
+    margin-bottom: 10px;
+    height: 67px;
+    width: 360px;
+    margin-left: 20px;
+  }
+  label {
+    text-align: start;
+    margin-left: 20px;
+  }
 }
-.form-field{
-    margin: 5px 0 20px 0;
+.form-field {
+  margin: 5px 0 20px 0;
 }
-div{
-
-    &.error-message{
-        color: red;
-        text-align: left;
-        font-size: 1rem;
-    }
+div {
+  &.error-message {
+    color: red;
+    text-align: left;
+    font-size: 0.8rem;
+    padding: 5px 0 0 20px;
+  }
 }

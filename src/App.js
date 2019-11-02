@@ -4,11 +4,10 @@ import 'rxjs';
 import './App.css';
 import { Router, Route, Switch, Redirect} from 'react-router-dom';
  
-import Register from './containers/registration/Register';
 import configureStore from './store/configureStore';
 import Dashboard from './containers/Dashboard';
 import Alert from './Alerts/Alert';
-import Nav from './containers/navigation/Nav';
+ 
 import materialIcons from 'material-design-icons/iconfont/material-icons.css'
 import { history } from './store/history';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -34,7 +33,7 @@ class App extends Component {
       <Router history={history}>
         <CssBaseline />
         <Provider store={store}>
-        <Alert/><Nav></Nav>
+        <Alert/> 
         
         <Suspense fallback={<div>lazy loading.....</div>}>
           <div className="App">

@@ -11,7 +11,7 @@ import ValidatorService from '../../services/formValidatorService';
 import './form.scss';
 
 
-const RegisterForm = ({ submitHandler }) => {
+const LoginForm = ({ submitHandler }) => {
     const [formErrors, setFormErrors] = useState({
         user: '',
         pwd: ''
@@ -32,7 +32,7 @@ const RegisterForm = ({ submitHandler }) => {
         setFormValues({
             ...formValues, [n]: v
         });
-        console.log("form values ", formValues);
+        
 
     }
     const validateForm = (evt) => {
@@ -43,7 +43,7 @@ const RegisterForm = ({ submitHandler }) => {
             return r;
         }, {});
         const hasErrors = Object.values(errors).filter(v => v.length).length;
-        console.log("form values ",errors, hasErrors);
+        
 
         if (hasErrors) {
             console.log("form values ",errors, hasErrors);
@@ -112,7 +112,7 @@ const RegisterForm = ({ submitHandler }) => {
                 <Button onClick={validateForm} variant="contained" color="primary">
                     Sign In
                 </Button>
-                <NavLink to="/register">
+                <NavLink to="/login">
                     Register for an account
                 </NavLink>
 
@@ -123,4 +123,4 @@ const RegisterForm = ({ submitHandler }) => {
     )
 }
 
-export default RegisterForm;
+export default LoginForm;

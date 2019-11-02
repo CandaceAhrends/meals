@@ -1,4 +1,13 @@
-.error{
-    color: #ff0000;
-    font-size: 19px;
+.login {
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  &-error {
+  
+    height: 50px;
+  }
 }

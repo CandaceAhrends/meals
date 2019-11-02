@@ -1,71 +1,78 @@
 $main-font: Georgia Helvetica, sans-serif;
 $font-initial-size: 14px;
 $font-color: #414a4f;
- 
+
 $outline-color: #333;
-$dark-main: hsl(211,61%,65%);
+$dark-main: hsl(211, 61%, 65%);
 $background: #383838;
 
-@mixin fontSize( $size){
-
+@mixin fontSize($size) {
 }
 
 @mixin container() {
-    display: flex;
-    flex-direction: column;    
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
-@mixin border-small(){
-    border: solid .5px #ccc;
-    border-radius: 10px;
-    height: 500px;
+@mixin border-small() {
+  border: solid 0.5px #ccc;
+  border-radius: 10px;
+  height: 550px;
 }
 @mixin title() {
-    font-weight: bold;
-    font-size: .9rem;
-    color: $dark-main;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: $dark-main;
 }
-@mixin center(){
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@mixin center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-@mixin row(){
-    display: flex;
-    margin: 1rem;
+@mixin row() {
+  display: flex;
+  margin: 1rem;
 }
-@mixin column(){
-    display: flex;
-    flex-direction: column;
+@mixin column() {
+  display: flex;
+  flex-direction: column;
 }
-@mixin wrapping(){
-    margin: 10px;
-    display: flex;
-    flex-wrap: wrap;
+@mixin wrapping() {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
-@mixin border(){
-    border: transparent .5px;
-    border-radius: 1rem;
-    box-shadow: 3px 3px 2px 1px rgba(61, 53, 55, 0.2);
+@mixin border() {
+  border: transparent 0.5px;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 2px 1px rgba(61, 53, 55, 0.2);
 }
-@mixin heading(){
-    font-size: 2rem;
-    font-weight: bolder;
-    color: white;
+@mixin heading() {
+  font-size: 2rem;
+  font-weight: bolder;
+  color: white;
 }
-
 
 body {
-    font:  1rem;       
-    
-    }
-    a{
-        text-decoration: none;
-    }
-    i{
-        color: $dark-main;
-        font-size: 3rem;
-    } 
-    .mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary{
-        background-color: $dark-main;
-    }
+  font: 1rem;
+}
+a {
+  text-decoration: none;
+}
+i {
+  color: $dark-main;
+  font-size: 3rem;
+}
+.mat-fab.mat-primary,
+.mat-flat-button.mat-primary,
+.mat-mini-fab.mat-primary,
+.mat-raised-button.mat-primary {
+  background-color: $dark-main;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 19px;
+   
+
+}
