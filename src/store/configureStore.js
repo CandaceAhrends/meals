@@ -11,6 +11,9 @@ const initialState = {
     loginReducer: {  user: null, authenticated: false, 
        msg: '', ...localStorage.getUser() },
     errorReducer:  { errorMessage: null },
+    appReducer: {   page: 
+          ''
+     },
     registerReducer: { msg: '', registered: false }
 };
 const store = createStore( rootReducer, initialState, applyMiddleware(epicMiddleware));

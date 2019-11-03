@@ -1,15 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import IconButton from "@material-ui/core/IconButton";
+import { Link, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import { attemptLogout } from "../actions";
-import { NavLink, Redirect, withRouter } from "react-router-dom";
- 
-import MainAppBar from "../components/UI/MainAppBar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+import { PAGE_CHANGE } from "../actions";
+import { withRouter } from "react-router-dom";
+import NavBar from "./Nav/NavBar";
 import ResponsiveDrawer from "../components/UI/Drawer";
+import RecipeDetails from "./recipe/Details";
 
 import { drawerConfig } from "./dashboardConfig";
 
@@ -18,53 +15,36 @@ import "./dashboard.scss";
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-
-    this.logoutUser = this.logoutUser.bind(this);
   }
-  componentDidMount() {
-    this.props.getUser();
-    console.log("getting user");
-  }
-  logoutUser(router) {
-    this.props.logout();
-    this.props.history.push("/login");
-  }
+  componentDidMount() {}
 
   render() {
+    console.log("props> ", this.props.match);
     return (
       <>
-        <MainAppBar>
-          {this.props.loggedIn ? (
-            <span className="app-bar-welcome">
-              <Typography variant="h6" color="inherit">
-                Welcome {this.props.user}
-              </Typography>
-            </span>
-          ) : null}
-
-          {this.props.loggedIn ? (
-            <Button onClick={this.logoutUser} color="inherit">
-              Log out
-            </Button>
-          ) : null}
-        </MainAppBar>
-
-        <ResponsiveDrawer config={drawerConfig} />
+         
+       
+        <NavBar />
+        <ResponsiveDrawer
+          config={drawerConfig}
+          pageChange={this.props.pageChange}
+        />
+         <Route
+          path="/dashboard/:page/:id/"
+          render={() => <h3>Please select a section:</h3>}
+        />
       </>
     );
   }
 }
 const mapStateToProps = state => {
-  console.log("mapping NAV state", state);
   return {
-    loggedIn: state.loginReducer.authenticated,
-    user: state.loginReducer.user
+    pageTitle: state.appReducer.page
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    getUser: () => dispatch({ type: "USER" }),
-    logout: user => dispatch(attemptLogout())
+    pageChange: page => dispatch({ type: PAGE_CHANGE, payload: page })
   };
 };
 export default withRouter(

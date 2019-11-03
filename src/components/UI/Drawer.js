@@ -1,41 +1,37 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
-
-import PropTypes from "prop-types";
-import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
-
-import Drawer from "@material-ui/core/Drawer";
- 
+import TextField from "@material-ui/core/TextField"; 
+import PropTypes from "prop-types"; 
+import CssBaseline from "@material-ui/core/CssBaseline"; 
+import Drawer from "@material-ui/core/Drawer"; 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import FastfoodSharpIcon from "@material-ui/icons/FastfoodSharp";
-import MenuIcon from "@material-ui/icons/Menu";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core/styles";
- 
+import ListItemText from "@material-ui/core/ListItemText"; 
+import Grid from "@material-ui/core/Grid"; 
+import { withStyles } from "@material-ui/core/styles"; 
 import { styles } from "./drawerStyles";
 
-const pluck = arr=>arr[0];
+const pluck = arr => arr[0];
 
 class ResponsiveDrawer extends React.Component {
-  state = {
-    mobileOpen: false,
-    expanded: "one",
-    menuRender:  pluck(this.props.config).render
-  };
+  constructor(props) {
+    super(props);
+    const initialMenuItem = pluck(this.props.config);
+    this.state = {
+      mobileOpen: false,
+      expanded: "one",
+      menuRender: initialMenuItem.render
+    };
+    props.pageChange(initialMenuItem.title);
+  }
 
   handleDrawerToggle = () => {
     this.setState(state => ({ mobileOpen: !state.mobileOpen }));
   };
-  handleMenuClick = (render) => {
-     
-    this.setState( {
-      menuRender: render
-    })
+  handleMenuClick = menuItem => {
+    this.props.pageChange(menuItem.title);
+    this.setState({
+      menuRender: menuItem.render
+    });
   };
   render() {
     const { classes, theme } = this.props;
@@ -44,14 +40,14 @@ class ResponsiveDrawer extends React.Component {
       <div className="classes.menuList">
         <div className={classes.toolbar} />
 
-        <List >
+        <List>
           {this.props.config.map((menuItem, index) => (
             <ListItem
               button
               key={index}
-              onClick={() =>  this.handleMenuClick(menuItem.render)}
+              onClick={() => this.handleMenuClick(menuItem)}
             >
-              <ListItemIcon> {menuItem.renderIcon()}</ListItemIcon>
+              <span style={{ padding: "4px" }}>{menuItem.renderIcon()} </span>
               <ListItemText primary={menuItem.title} />
             </ListItem>
           ))}
@@ -59,7 +55,6 @@ class ResponsiveDrawer extends React.Component {
       </div>
     );
 
-    
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -74,7 +69,7 @@ class ResponsiveDrawer extends React.Component {
           {drawer}
         </Drawer>
         <main className={classes.content}>
-          <Grid container spacing={24} className={classes.conentWrapper}>
+          <Grid container className={classes.conentWrapper}>
             <Grid item xs={12}>
               {this.state.menuRender()}
             </Grid>

@@ -24,7 +24,7 @@ export const styles = theme => ({
     },
     drawerPaper: {
       width: drawerWidth,
-      top: '50px',
+      top: '59px',
       zIndex: '100'
     },
     content: {

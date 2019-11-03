@@ -29,7 +29,7 @@ class Login extends React.Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.loggedIn) {
-      this.props.history.push("/dashboard/229");
+      this.props.history.push("/dashboard");
     }
   }
 
