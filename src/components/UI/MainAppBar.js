@@ -1,29 +1,30 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
- 
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    justifyContent: 'space-between'
+    justifyContent: "space-between",
+    position: "fixed",
+    zIndex: "9999999",
+    width: "100%"
   },
-  
+
   toolBarRoot: {
     flexGrow: 1,
-    justifyContent: 'space-between'
-  },
+    justifyContent: "space-between"
+  }
 }));
 
-export default function MainAppBar({children}) {
+export default function MainAppBar({ children }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar className={ classes.toolBarRoot}>
-         {children}
-        </Toolbar>
+        <Toolbar className={classes.toolBarRoot}>{children}</Toolbar>
       </AppBar>
     </div>
   );

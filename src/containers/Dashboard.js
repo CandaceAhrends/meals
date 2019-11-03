@@ -1,33 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
- 
+
 import IconButton from "@material-ui/core/IconButton";
 import { connect } from "react-redux";
 import { attemptLogout } from "../actions";
 import { NavLink, Redirect, withRouter } from "react-router-dom";
-import Toolbar from "@material-ui/core/Toolbar";
  
 import MainAppBar from "../components/UI/MainAppBar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import ResponsiveDrawer from "../components/UI/Drawer";
-import FastfoodSharpIcon from "@material-ui/icons/FastfoodSharp";
-import CreateIcon from "@material-ui/icons/Create";
- 
-import "./dashboard.scss";
 
-const drawerConfig = [
-  {
-    title: "Recipe's",
-    renderIcon: () => <FastfoodSharpIcon />,
-    render: () => <div>recipe</div>
-  },
-  {
-    title: "Diary",
-    renderIcon: () => <CreateIcon />,
-    render: () => <div>diary</div>
-  }
-];
+import { drawerConfig } from "./dashboardConfig";
+
+import "./dashboard.scss";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -45,7 +31,6 @@ class Dashboard extends React.Component {
   }
 
   render() {
-     
     return (
       <>
         <MainAppBar>
@@ -55,17 +40,13 @@ class Dashboard extends React.Component {
                 Welcome {this.props.user}
               </Typography>
             </span>
-          ) : (
-            null
-          )}
+          ) : null}
 
           {this.props.loggedIn ? (
             <Button onClick={this.logoutUser} color="inherit">
               Log out
             </Button>
-          ) : (
-             null
-          )}
+          ) : null}
         </MainAppBar>
 
         <ResponsiveDrawer config={drawerConfig} />

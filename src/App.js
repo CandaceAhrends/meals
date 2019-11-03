@@ -6,6 +6,8 @@ import { Router, Route, Switch, Redirect} from 'react-router-dom';
  
 import configureStore from './store/configureStore';
 import Dashboard from './containers/Dashboard';
+import RecipeDetails from './containers/recipe/Details';
+
 import Alert from './Alerts/Alert';
  
 import materialIcons from 'material-design-icons/iconfont/material-icons.css'
@@ -48,7 +50,7 @@ class App extends Component {
               {/* <Route exact path="/register" render={ (props) =>
               <Register {...props}/>}></Route> */}
               <Route path='/dashboard/:test' render={ routeGuard(Dashboard)} ></Route>
-             
+              <Route path='/details/:id' render={ routeGuard(RecipeDetails)} ></Route>
             </Switch>
           </div>
           </Suspense>

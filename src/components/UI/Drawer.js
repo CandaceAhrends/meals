@@ -6,8 +6,7 @@ import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import Drawer from "@material-ui/core/Drawer";
-
-import InboxIcon from "@material-ui/icons/MoveToInbox";
+ 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -17,53 +16,40 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-
-import FocusInput from "./FocusInput";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
-import Input from "@material-ui/core/Input";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import FilledInput from "@material-ui/core/FilledInput";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+ 
 import { styles } from "./drawerStyles";
 
+const pluck = arr=>arr[0];
 
 class ResponsiveDrawer extends React.Component {
   state = {
     mobileOpen: false,
     expanded: "one",
-    menuRender: ()=><div>menu r</div>
+    menuRender:  pluck(this.props.config).render
   };
 
   handleDrawerToggle = () => {
     this.setState(state => ({ mobileOpen: !state.mobileOpen }));
   };
-  handleMenuClick = (menuItem) => {
+  handleMenuClick = (render) => {
+     
     this.setState( {
-      menuRender: menuItem.render
+      menuRender: render
     })
   };
   render() {
     const { classes, theme } = this.props;
     console.log("props ", this.props.config);
     const drawer = (
-      <div>
+      <div className="classes.menuList">
         <div className={classes.toolbar} />
 
-        <List>
+        <List >
           {this.props.config.map((menuItem, index) => (
             <ListItem
               button
               key={index}
-              onClick={() => this.handleMenuClick(menuItem)}
+              onClick={() =>  this.handleMenuClick(menuItem.render)}
             >
               <ListItemIcon> {menuItem.renderIcon()}</ListItemIcon>
               <ListItemText primary={menuItem.title} />

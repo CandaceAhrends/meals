@@ -18,13 +18,14 @@ export const styles = theme => ({
         display: 'none',
       },
     },
-    progress: {
-      margin: theme.spacing.unit * 2,
+    menuList:{
+      zIndex: '999999',
+      border: 'solid purple'
     },
     drawerPaper: {
       width: drawerWidth,
       top: '50px',
-      zIndex: '-1'
+      zIndex: '100'
     },
     content: {
       flexGrow: 1,
