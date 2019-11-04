@@ -63,6 +63,9 @@ i {
   color: $dark-main;
   font-size: 3rem;
 }
+a, a:visited, a:hover, a:active {
+  color: inherit;
+}
 .mat-fab.mat-primary,
 .mat-flat-button.mat-primary,
 .mat-mini-fab.mat-primary,

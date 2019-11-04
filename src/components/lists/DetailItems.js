@@ -5,14 +5,16 @@ import './lists.scss';
 
  
 
-const DetailItem = ({ children }) => {
+const DetailItems= ({ children }) => {
+   
+  
     return (
         <div className="detail">
 
-            {children}
+           {children}
              
         </div>
     )
 }
 
-export default DetailItem;
+export default DetailItems;

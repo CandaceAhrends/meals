@@ -2,15 +2,14 @@ import React, { useEffect, useState, useContext } from "react";
 import useApi from "../../hooks/useApi";
 import { recipeObservable$ } from "../../api/recipeApi";
 import ListCard from "../../components/UI/ListCard";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
-import IconButton from '@material-ui/core/IconButton';
+ 
 import "./recipe.scss";
 
-const Recipe = ({match}) => {
-  const recipes = useApi(recipeObservable$, []);
-  console.log("match", match);
+const Recipe = ( {match}) => {
+  const recipes = useApi(recipeObservable$, 'salmon');
+ console.log("match in recipe", match);
   
   return (
     <div className="recipe-list">

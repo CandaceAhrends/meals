@@ -1,5 +1,5 @@
 
-const drawerWidth = 240;
+const drawerWidth = 180;
 
 export const styles = theme => ({
     root: {
@@ -11,6 +11,13 @@ export const styles = theme => ({
     },
     conentWrapper: {
       position: 'relative'
+    },
+    menuLink:{
+      textDecoration: 'none',
+      display: 'flex',
+      color: '#620OEE',
+      padding: '5px'
+      
     },
     menuButton: {
       marginRight: 20,

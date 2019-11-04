@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './alert.scss';
 
-const Alert = ({errorMessage}) =><div>{errorMessage}</div>;         
+const Alert = ({errorMessage}) =><div className="alert">{errorMessage}</div>;         
 
 const mapStateToProps = (state) => {
    

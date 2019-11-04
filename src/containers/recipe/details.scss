@@ -1,0 +1,31 @@
+@import "../../styles/base.scss";
+.detail{
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    margin-left: -40px;
+    
+   
+    &-wrapper{
+        display: flex;
+       
+        justify-content: center;
+        background: rgba(0,0,0,.9);
+         
+        position: relative;
+        
+        &-image{
+            width: 80%;
+            align-self: start;
+            background: #ccc;
+            
+        }
+    }
+}
+nav{
+    display: flex;
+    text-decoration: none; 
+    height: 36px;
+    
+}
+ 

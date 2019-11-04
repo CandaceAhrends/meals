@@ -1,13 +1,14 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField"; 
-import PropTypes from "prop-types"; 
-import CssBaseline from "@material-ui/core/CssBaseline"; 
-import Drawer from "@material-ui/core/Drawer"; 
+import TextField from "@material-ui/core/TextField";
+import PropTypes from "prop-types";
+import { Link, Route } from "react-router-dom";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText"; 
-import Grid from "@material-ui/core/Grid"; 
-import { withStyles } from "@material-ui/core/styles"; 
+import ListItemText from "@material-ui/core/ListItemText";
+import Grid from "@material-ui/core/Grid";
+import { withStyles } from "@material-ui/core/styles";
 import { styles } from "./drawerStyles";
 
 const pluck = arr => arr[0];
@@ -15,6 +16,7 @@ const pluck = arr => arr[0];
 class ResponsiveDrawer extends React.Component {
   constructor(props) {
     super(props);
+ 
     const initialMenuItem = pluck(this.props.config);
     this.state = {
       mobileOpen: false,
@@ -27,12 +29,12 @@ class ResponsiveDrawer extends React.Component {
   handleDrawerToggle = () => {
     this.setState(state => ({ mobileOpen: !state.mobileOpen }));
   };
-  handleMenuClick = menuItem => {
-    this.props.pageChange(menuItem.title);
-    this.setState({
-      menuRender: menuItem.render
-    });
-  };
+  // handleMenuClick = menuItem => {
+  //   this.props.pageChange(menuItem.title);
+  //   this.setState({
+  //     menuRender: menuItem.render
+  //   });
+  // };
   render() {
     const { classes, theme } = this.props;
     console.log("props ", this.props.config);
@@ -42,14 +44,16 @@ class ResponsiveDrawer extends React.Component {
 
         <List>
           {this.props.config.map((menuItem, index) => (
-            <ListItem
-              button
+            <Link
+              to={menuItem.link}
+              className={classes.menuLink}
               key={index}
-              onClick={() => this.handleMenuClick(menuItem)}
+              color='primary'
             >
-              <span style={{ padding: "4px" }}>{menuItem.renderIcon()} </span>
-              <ListItemText primary={menuItem.title} />
-            </ListItem>
+              <span style={{ padding: "4px" }}>
+                {menuItem.renderIcon()} {menuItem.title}
+              </span>
+            </Link>
           ))}
         </List>
       </div>
@@ -69,11 +73,9 @@ class ResponsiveDrawer extends React.Component {
           {drawer}
         </Drawer>
         <main className={classes.content}>
-          <Grid container className={classes.conentWrapper}>
-            <Grid item xs={12}>
-              {this.state.menuRender()}
-            </Grid>
-          </Grid>
+          
+            {this.props.renderRoutes()}
+           
         </main>
       </div>
     );

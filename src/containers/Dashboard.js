@@ -6,9 +6,8 @@ import { PAGE_CHANGE } from "../actions";
 import { withRouter } from "react-router-dom";
 import NavBar from "./Nav/NavBar";
 import ResponsiveDrawer from "../components/UI/Drawer";
-import RecipeDetails from "./recipe/Details";
 
-import { drawerConfig } from "./dashboardConfig";
+import { drawerConfig, renderRoutes } from "./dashboardConfig";
 
 import "./dashboard.scss";
 
@@ -22,16 +21,11 @@ class Dashboard extends React.Component {
     console.log("props> ", this.props.match);
     return (
       <>
-         
-       
         <NavBar />
         <ResponsiveDrawer
           config={drawerConfig}
+          renderRoutes={renderRoutes}
           pageChange={this.props.pageChange}
-        />
-         <Route
-          path="/dashboard/:page/:id/"
-          render={() => <h3>Please select a section:</h3>}
         />
       </>
     );

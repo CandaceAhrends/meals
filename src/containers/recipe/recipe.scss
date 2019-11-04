@@ -4,7 +4,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 70px;
-    justify-content: center;
+    margin-left: -55px;
+    justify-content: flex-start;
   }
   &-card {
     margin: 10px;
