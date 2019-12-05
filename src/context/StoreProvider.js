@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-export const StoreContext = React.createContext({ test: 'test', what: 'what'});
+export const StoreContext = React.createContext({});
 
 export const ADD_MEAL = "ADD_MEAL";
 const initialState = {

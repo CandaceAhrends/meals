@@ -8,7 +8,7 @@ import {   withRouter } from "react-router-dom";
 import MainAppBar from "../../components/UI/MainAppBar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
- 
+
  
 
 class NavBar extends React.Component {

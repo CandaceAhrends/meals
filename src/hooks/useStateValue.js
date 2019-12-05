@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StoreContext } from "../context/store";
+import { StoreContext } from "../context/StoreProvider";
 const useStateValue = key => {
   const { state } = useContext(StoreContext);
 

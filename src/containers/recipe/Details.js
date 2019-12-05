@@ -2,24 +2,25 @@ import React, { useEffect, useContext } from "react";
 import useApi from "../../hooks/useApi";
 import { recipeDetailsObservable$ } from "../../api/recipeApi";
 import AddRoundedIcon from "@material-ui/icons/AddRounded";
-import { StoreContext, ADD_MEAL } from "../../context/store";
+import { StoreContext, ADD_MEAL } from "../../context/StoreProvider";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Image from "material-ui-image";
 import Button from "@material-ui/core/Button";
 import NavigateBeforeRoundedIcon from "@material-ui/icons/NavigateBeforeRounded";
 import List from "@material-ui/core/List";
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import PropTypes from 'prop-types';
+
 import "./details.scss";
 
 const getId = match => match.params.id;
 
 const RecipeDetails = ({ match }) => {
   const recipeId = getId(match);
-  console.log("match in deatila", match);
+
   const details = useApi(recipeDetailsObservable$, recipeId, {});
-  const { state, dispatch } = useContext(StoreContext);
+  const { dispatch } = useContext(StoreContext);
 
   const addMeal = () => {
     dispatch({ type: ADD_MEAL, payload: recipeId });
@@ -43,20 +44,9 @@ const RecipeDetails = ({ match }) => {
     <div className="detail">
       <nav>
         <Link to="/dashboard/recipes">
-          <Button
-            
-          
-            startIcon={<NavigateBeforeRoundedIcon />}
-          >
-            Back
-          </Button>
+          <Button startIcon={<NavigateBeforeRoundedIcon />}>Back</Button>
         </Link>
-        <Button
-          
-           
-          startIcon={<AddRoundedIcon />}
-          onClick={addMeal}
-        >
+        <Button startIcon={<AddRoundedIcon />} onClick={addMeal}>
           Add to diary
         </Button>
       </nav>
@@ -75,7 +65,7 @@ const RecipeDetails = ({ match }) => {
         </div>
       </div>
       {details.instructions ? (
-        <List  style={{textAlign: 'start'}} >
+        <List style={{ textAlign: "start" }}>
           {details.instructions.map((detail, idx) => (
             <ListItemText
               key={idx}
@@ -85,9 +75,10 @@ const RecipeDetails = ({ match }) => {
           ))}
         </List>
       ) : null}
-     
     </div>
   );
 };
-
+RecipeDetails.propTypes = {
+  match: PropTypes.string
+}
 export default RecipeDetails;

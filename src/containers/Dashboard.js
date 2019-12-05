@@ -6,9 +6,8 @@ import { PAGE_CHANGE } from "../actions";
 import { withRouter } from "react-router-dom";
 import NavBar from "./Nav/NavBar";
 import ResponsiveDrawer from "../components/UI/Drawer";
-
+import { ViewTrackerConsumer } from "../context/ViewTrackerProvider";
 import { drawerConfig, renderRoutes } from "./dashboardConfig";
-
 import "./dashboard.scss";
 
 class Dashboard extends React.Component {
@@ -21,7 +20,10 @@ class Dashboard extends React.Component {
     console.log("props> ", this.props.match);
     return (
       <>
-        <NavBar />
+        <ViewTrackerConsumer>
+         
+          {({getViewsSum}) => <NavBar pageTitle={`Total Recipes viewed: ${getViewsSum()}`} />}
+        </ViewTrackerConsumer>
         <ResponsiveDrawer
           config={drawerConfig}
           renderRoutes={renderRoutes}
