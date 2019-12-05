@@ -1,0 +1,25 @@
+{
+  "name": "diet-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Candace",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^7.3.6",
+    "@date-io/moment": "^1.1.0",
+    "@material-ui/core": "^3.9.3",
+    "bcrypt": "^3.0.7",
+    "body-parser": "^1.18.3",
+    "jsonwebtoken": "^8.5.1",
+    "login": "file:libraries/login/login-1.0.0.tgz",
+    "material-ui-pickers": "^2.2.4",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.18",
+    "nodemailer": "^5.1.1",
+    "nodemailer-smtp-transport": "^2.7.4"
+  }
+}
