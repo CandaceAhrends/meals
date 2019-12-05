@@ -3,6 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+*need to install mangodb and run the server in the /server folder for this to run
 
 ### `npm start`
 
